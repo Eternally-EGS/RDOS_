@@ -100,9 +100,9 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Epilog","path":"rooms/Epilog/Epilog.yy",},},
-    {"roomId":{"name":"Epilog","path":"rooms/Epilog/Epilog.yy",},},
     {"roomId":{"name":"Main_Menu","path":"rooms/Main_Menu/Main_Menu.yy",},},
+    {"roomId":{"name":"Epilog","path":"rooms/Epilog/Epilog.yy",},},
+    {"roomId":{"name":"Epilog","path":"rooms/Epilog/Epilog.yy",},},
     {"roomId":{"name":"Main","path":"rooms/Main/Main.yy",},},
     {"roomId":{"name":"Start","path":"rooms/Start/Start.yy",},},
     {"roomId":{"name":"Main_Menu","path":"rooms/Main_Menu/Main_Menu.yy",},},
