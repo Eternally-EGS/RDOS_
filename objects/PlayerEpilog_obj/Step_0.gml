@@ -80,11 +80,11 @@ if (EAnimPlay == 1) {
 	} else { if Current_Speed > 0 { Current_Speed -= Inertia; } }
 }
 if (help == 0){
-	if PlayerEpilog_obj.y < 288{
+	if (PlayerEpilog_obj.y < 288){
 		PlayerEpilog_obj.y += 0.2
 		PlayerEpilog_obj.image_index += 0.07
 		if PlayerEpilog_obj.image_index >= 4{
-		PlayerEpilog_obj.image_index = 0
+			PlayerEpilog_obj.image_index = 0
 		}
 	}else{ 
 		stopincutscene = 0
