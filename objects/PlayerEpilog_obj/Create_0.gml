@@ -14,3 +14,4 @@ EBaseAnim = 0;
 BaseAnimSpeed = 0.1;
 
 stopincutscene = 1
+help = 0
