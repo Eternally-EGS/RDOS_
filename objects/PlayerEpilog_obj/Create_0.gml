@@ -23,5 +23,5 @@ tuterhelp = 0
 helperalpha = 0
 animfur7 = 0
 timeranimfur7 = 0
-
-
+//USE
+jopajopa = 0
