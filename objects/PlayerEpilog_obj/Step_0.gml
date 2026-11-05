@@ -104,6 +104,6 @@ if (help == 1){
 	else{ 
 		tutorzakrep = 1
 		tuterhelp = 0
-		tutor=0
+		tutor = 0
 	}
 }
