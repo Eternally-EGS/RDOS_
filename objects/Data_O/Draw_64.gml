@@ -79,6 +79,9 @@ if (Wave_perk == 1) {
 } else { perkAnim = 1000; }
 
 
+//draw_text_ext_colour(100,650,ViewText_O.Text,10000,10000,c_white,c_white,c_white,c_white,alpha);
+
+
 
 
 

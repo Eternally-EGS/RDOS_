@@ -52,6 +52,7 @@
     {"id":{"name":"SDTScreeen_obj","path":"objects/SDTScreeen_obj/SDTScreeen_obj.yy",},},
     {"id":{"name":"StartButton_O","path":"objects/StartButton_O/StartButton_O.yy",},},
     {"id":{"name":"StartEpilogAlpha_obj","path":"objects/StartEpilogAlpha_obj/StartEpilogAlpha_obj.yy",},},
+    {"id":{"name":"ViewText_O","path":"objects/ViewText_O/ViewText_O.yy",},},
     {"id":{"name":"Wall_O","path":"objects/Wall_O/Wall_O.yy",},},
     {"id":{"name":"Epilog","path":"rooms/Epilog/Epilog.yy",},},
     {"id":{"name":"Main_Menu","path":"rooms/Main_Menu/Main_Menu.yy",},},

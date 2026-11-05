@@ -43,16 +43,11 @@ grade_alpha = 0;
 gradas = [];
 
 function TriggerGrade(Text, _xx = x, _yy = y) {
-    if (is_real(Text)) {
-        grade_text = string(round(Text));
-    } else {
-        grade_text = string(Text);
-    }
-    
-    grade_x = _xx;
-    grade_y = _yy;
-    grade_scale = 2;
-    grade_alpha = 1.0;
+	var _t = instance_create_depth(_xx,_yy,0,ViewText_O)
+	_t.Text  = Text;
+	_t.X = _xx;
+	_t.Y = _yy;
+	
 }
 
 
