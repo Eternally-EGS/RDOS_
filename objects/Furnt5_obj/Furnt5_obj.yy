@@ -1,16 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"SDTScreeen_O",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"Furnt5_obj",
+  "eventList":[],
   "managed":true,
-  "name":"SDTScreeen_O",
+  "name":"Furnt5_obj",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"FurnitureOBJ_gp",
+    "path":"folders/Epilogdata_gp/FurnitureOBJ_gp.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite25",
-    "path":"sprites/Sprite25/Sprite25.yy",
+    "name":"Furnt5_sp",
+    "path":"sprites/Furnt5_sp/Furnt5_sp.yy",
   },
   "spriteMaskId":null,
   "visible":true,
