@@ -1,1 +1,1 @@
-draw_text(10,10,$"Fps {MaxBulletCounte}")
+draw_text(10,10,$"Fps {Max_Speed}")

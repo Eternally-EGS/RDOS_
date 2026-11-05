@@ -200,22 +200,7 @@ if (buff_inf_timer > 0) {
     _bonus_bullets += 99; // Бесконечный запас пуль
 }
 
-// Прыжок на полкарты (Mega Dash) и обычный Rapid
-if (buff_megadash_timer > 0) {
-    buff_megadash_timer -= 1;
-    RapidSpeed   = 28;   // Гигантская скорость рывка (прыжок через полкарты!)
-    RapidMaxTime = 0.7;  // Чуть дольше летит в рывке
-    RapidDelay   = 0.4;
-} else if (buff_rapid_timer > 0) {
-    buff_rapid_timer -= 1;
-    RapidSpeed   = 15;
-    RapidMaxTime = 0.5;
-    RapidDelay   = 0.5;
-} else {
-    RapidSpeed   = 10;
-    RapidMaxTime = 0.5;
-    RapidDelay   = 1;
-}
+
 
 // Регенерация HP (+1 HP каждую секунду)
 if (buff_regen_timer > 0) {

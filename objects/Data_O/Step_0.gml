@@ -110,7 +110,7 @@ if (Wave_perk == 1) {
         var b1 = t1 + sprite_get_height(PerkIcon_S) * 5;
 
         if (point_in_rectangle(mx, my, l1, t1, r1, b1)) {
-            perk1Type = -1;
+            perk2Type = -1;
 			StartWave();
         }
 
@@ -122,19 +122,20 @@ if (Wave_perk == 1) {
         var b2 = t2 + sprite_get_height(PerkIcon_S) * 5;
 
         if (point_in_rectangle(mx, my, l2, t2, r2, b2)) {
-            perk2Type = -1;
+            perk1Type = -1;
             StartWave();
         }
     }
 }
 
+
 function StartWave () {
 
 	// Perk Type
 	switch (perk1Type) {
-		case 0: Player_O.MaxBulletCounte += 1			                    break;	
-		case 1: Player_O.MaxBulletCounte += 2			                    break;	
-		case 2: Player_O.Max_Speed += Player_O.Max_Speed * 0.05;			break;
+		case 0: Player_O.BaseBulletCount += 1			                    break;	
+		case 1: Player_O.BaseBulletCount += 2			                    break;	
+		case 2: Player_O.Max_Speed += 100;			break;
 		case 3: Player_O.MaxHP += Player_O.MaxHP * 0.15;				 break;
 		case 4: Player_O.Damage += Player_O.Damage * 0.30;					 break;
 		case 5: Player_O.DeadMaxDelay += Player_O.DeadMaxDelay * 0.10;      break;
@@ -144,9 +145,9 @@ function StartWave () {
 	}
 
 	switch (perk2Type) {
-		case 0: Player_O.MaxBulletCounte += 1			                   break;	
-		case 1: Player_O.MaxBulletCounte += 2			                    break;	
-		case 2: Player_O.Max_Speed += Player_O.Max_Speed * 0.05;			 break;
+		case 0: Player_O.BaseBulletCount += 1			                   break;	
+		case 1: Player_O.BaseBulletCount += 2			                    break;	
+		case 2: Player_O.Max_Speed += 100;			 break;
 		case 3: Player_O.MaxHP += Player_O.MaxHP * 0.15;					 break;
 		case 4: Player_O.Damage += Player_O.Damage * 0.30;				 break;
 		case 5: Player_O.DeadMaxDelay += Player_O.DeadMaxDelay * 0.10;     break;
@@ -157,8 +158,6 @@ function StartWave () {
 	
 	Wave_perk = 0
 	perkSpawn = 0
-	perk1Type = -1;
-	perk2Type = -1;	
 	SpawnEnemy();
 }
 
