@@ -129,3 +129,13 @@ if (help == 1){
 	Furnt8_obj.image_alpha = 0
 	}
 }
+
+if point_distance(PlayerEpilog_obj.x, PlayerEpilog_obj.y, Furnt4_obj.x, Furnt4_obj.y) < 100{
+	if keyboard_check_pressed(ord("E")){
+		jopajopa = 1
+	}
+}else jopajopa = 0
+
+
+
+
