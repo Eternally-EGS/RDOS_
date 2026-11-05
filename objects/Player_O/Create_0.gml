@@ -56,12 +56,12 @@ buff_invinibALL_timer    = 0;
 buff_range_timer    = 0;
 buff_BulletCount_timer    = 0;
 
-saveSpeed = 0;
-saveRapid = 0;
-saveDamage = 0;
-saveinvinibALL = 0;
-saverange = 0;
-saveBulletCount = 0;
+saveSpeed = Max_Speed;
+saveRapid = RapidMaxTime;
+saveDamage = Damage;
+saverange = DeadMaxDelay;
+saveBulletCount = MaxBulletCounte;
+
 
 
 
