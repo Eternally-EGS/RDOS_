@@ -13,9 +13,15 @@ EAnimPlay = 0;
 EBaseAnim = 0;
 BaseAnimSpeed = 0.1;
 
+
+//Хелперы
 stopincutscene = 1
 help = 0
 tutor = 0
 tutorzakrep = 0
 tuterhelp = 0
-helperalpha = 1
+helperalpha = 0
+animfur7 = 0
+timeranimfur7 = 0
+
+

@@ -98,6 +98,7 @@ if (help == 1){
 			if (tutor >= 10){
 				tuterhelp = 1
 				tutor = 10
+				helperalpha += 0.1
 			}
 		}
 	}
@@ -105,5 +106,26 @@ if (help == 1){
 		tutorzakrep = 1
 		tuterhelp = 0
 		tutor = 0
+		helperalpha = 0
+	}
+}
+if (help == 1){
+	animfur7 += 1/60
+	timeranimfur7 += 1/60
+	Furnt7_obj.x = 654
+	Furnt8_obj.x = 415
+	if (animfur7 < 0.5){
+		Furnt7_obj.y = 96
+		Furnt8_obj.y = 148
+	}else if (animfur7 > 0.5){
+		Furnt7_obj.y = 96+32
+		Furnt8_obj.y = 148 + 32
+	}
+	if animfur7 > 1{
+		animfur7 = 0
+	}
+	if timeranimfur7 >= 4.5{
+	Furnt7_obj.image_alpha = 0
+	Furnt8_obj.image_alpha = 0
 	}
 }
