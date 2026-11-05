@@ -48,13 +48,10 @@ if (instance_exists(Player_O)) {
 
     if (Player_O.buff_speed_timer > 0)    Value1 += "SPEED UP: "  + string_format(Player_O.buff_speed_timer / _fps, 1, 1) + "s\n";
     if (Player_O.buff_rapid_timer > 0)    Value1 += "RAPID+: "    + string_format(Player_O.buff_rapid_timer / _fps, 1, 1) + "s\n";
-    if (Player_O.buff_megadash_timer > 0) Value1 += "MEGA DASH: " + string_format(Player_O.buff_megadash_timer / _fps, 1, 1) + "s\n";
-    if (Player_O.buff_regen_timer > 0)    Value1 += "REGEN: "     + string_format(Player_O.buff_regen_timer / _fps, 1, 1) + "s\n";
-    if (Player_O.buff_pierce_timer > 0)   Value1 += "PIERCE: "    + string_format(Player_O.buff_pierce_timer / _fps, 1, 1) + "s\n";
-    if (Player_O.buff_giant_timer > 0)    Value1 += "GIANT SHOT: "+ string_format(Player_O.buff_giant_timer / _fps, 1, 1) + "s\n";
-    if (Player_O.buff_god_timer > 0)      Value1 += "OVERDRIVE: " + string_format(Player_O.buff_god_timer / _fps, 1, 1) + "s\n";
-    if (Player_O.buff_freeze_timer > 0)   Value1 += "FREEZE: "    + string_format(Player_O.buff_freeze_timer / _fps, 1, 1) + "s\n";
-    if (Player_O.buff_inf_timer > 0)      Value1 += "INF AMMO: "  + string_format(Player_O.buff_inf_timer / _fps, 1, 1) + "s\n";
+	if (Player_O.buff_damage_timer > 0)    Value1 += "DAMAGE+: "    + string_format(Player_O.buff_damage_timer / _fps, 1, 1) + "s\n";
+	if (Player_O.buff_invinibALL_timer > 0)    Value1 += "INVULNERABLE+: "    + string_format(Player_O.buff_invinibALL_timer / _fps, 1, 1) + "s\n";
+	if (Player_O.buff_range_timer > 0)    Value1 += "RANGE+: "    + string_format(Player_O.buff_range_timer / _fps, 1, 1) + "s\n";
+	if (Player_O.buff_BulletCount_timer > 0)    Value1 += "RULER+: "    + string_format(Player_O.buff_BulletCount_timer / _fps, 1, 1) + "s\n";
 }
 
 if (Value != "") {

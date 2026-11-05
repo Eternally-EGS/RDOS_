@@ -48,16 +48,20 @@ BulletFrame = -1;
 
 BaseBulletCount = 3;
 MaxBulletCounte = BaseBulletCount;
+
 buff_speed_timer    = 0;
 buff_rapid_timer    = 0;
-buff_god_timer      = 0;
-buff_pierce_timer   = 0;
-buff_megadash_timer = 0;
-buff_regen_timer    = 0;
-buff_giant_timer    = 0;
-buff_freeze_timer   = 0;
-buff_inf_timer      = 0;
-regen_tick          = 0;
+buff_damage_timer    = 0;
+buff_invinibALL_timer    = 0;
+buff_range_timer    = 0;
+buff_BulletCount_timer    = 0;
+
+saveSpeed = 0;
+saveRapid = 0;
+saveDamage = 0;
+saveinvinibALL = 0;
+saverange = 0;
+saveBulletCount = 0;
 
 
 

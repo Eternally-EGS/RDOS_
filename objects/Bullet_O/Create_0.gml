@@ -42,9 +42,7 @@ grade_scale = 6;
 grade_alpha = 0;
 gradas = [];
 
-// Вызывается в Step при ударе — запускает анимацию
 function TriggerGrade(Text, _xx = x, _yy = y) {
-    // Если передали число (угол) — округляем и переводим в текст, если уже текст — оставляем как есть
     if (is_real(Text)) {
         grade_text = string(round(Text));
     } else {
@@ -57,7 +55,6 @@ function TriggerGrade(Text, _xx = x, _yy = y) {
     grade_alpha = 1.0;
 }
 
-// Вызывается каждый кадр в Draw — рисует и двигает анимацию
 
 my_cuts = [];
 _cut = noone;
@@ -82,46 +79,82 @@ function StartLine() {
 
 gradas = [];
 
-// Флаги, чтобы бонус за фигуру сработал один раз за выстрел
 got_45 = false;
+got_pingpong = false;
 got_triangle = false;
+got_zigzag = false;
+got_diamond = false;
 got_square = false;
+got_star = false;
+got_chaos = false;
 
-// Функция проверки углов и фигур
+
 function CheckAngleBonuses() {
     if (!instance_exists(Player_O)) return;
 
     var _len = array_length(gradas);
     if (_len == 0) return;
 
-    // 1. БОНУС ЗА УГОЛ 45° (с допуском ±5 градусов, чтобы было реально попасть)
     var _last_angle = gradas[_len - 1];
+
     if (!got_45 && abs(angle_difference(_last_angle, 45)) <= 5) {
         got_45 = true;
-        Player_O.buff_speed_timer = 180; // Бафф на 3 секунды (180 кадров при 60 FPS)
-        TriggerGrade("45! SPEED UP!", x, y - 30);
+		Player_O.buff_speed_timer = 240;
+        TriggerGrade("45! ", x, y - 30);
     }
 
-    // 2. БОНУС ЗА ТРЕУГОЛЬНИК (3 рикошета, где сумма поворотов примерно 180° или просто 3 разных угла)
+    if (!got_pingpong && _len >= 2) {
+        var _d1 = abs(angle_difference(gradas[_len - 2], gradas[_len - 1]));
+        if (abs(_d1 - 180) <= 10) {
+            got_pingpong = true;
+            Player_O.buff_range_timer = 240;
+            TriggerGrade("PING-PONG! 180!", x, y - 30);
+        }
+    }
+
+
     if (!got_triangle && _len >= 3) {
-        // Проверяем, что последние 3 угла заметно отличаются друг от друга (образуют треугольник)
         var _a1 = gradas[_len - 3];
         var _a2 = gradas[_len - 2];
         var _a3 = gradas[_len - 1];
         
         if (abs(angle_difference(_a1, _a2)) > 20 && abs(angle_difference(_a2, _a3)) > 20 && abs(angle_difference(_a1, _a3)) > 20) {
             got_triangle = true;
-            Player_O.buff_rapid_timer = 240; // Ускорение рывка (Rapid) на 4 секунды
-            TriggerGrade("TRIANGLE! RAPID+", x, y - 30);
+			Player_O.buff_damage_timer = 240;
+            TriggerGrade("TRIANGLE!", x, y - 30);
         }
     }
 
-    // 3. БОНУС ЗА КВАДРАТ (4 рикошета подряд под углами ~90° друг к другу, например 45 -> 135 -> 225 -> 315)
+    if (!got_zigzag && _len >= 3) {
+        var _diff1 = angle_difference(gradas[_len - 3], gradas[_len - 2]);
+        var _diff2 = angle_difference(gradas[_len - 2], gradas[_len - 1]);
+        
+        if (sign(_diff1) != sign(_diff2) && abs(abs(_diff1) - 60) <= 20 && abs(abs(_diff2) - 60) <= 20) {
+            got_zigzag = true;
+            Player_O.buff_rapid_timer = 240; 
+            TriggerGrade("ZIGZAG!", x, y - 30);
+        }
+    }
+
+    if (!got_diamond && _len >= 4) {
+        var _d1 = abs(angle_difference(gradas[_len - 4], gradas[_len - 3]));
+        var _d2 = abs(angle_difference(gradas[_len - 3], gradas[_len - 2]));
+        var _d3 = abs(angle_difference(gradas[_len - 2], gradas[_len - 1]));
+
+        var _opp1 = abs(angle_difference(gradas[_len - 4], gradas[_len - 2]));
+        var _opp2 = abs(angle_difference(gradas[_len - 3], gradas[_len - 1]));
+
+        if (abs(_opp1 - 180) <= 15 && abs(_opp2 - 180) <= 15 && abs(_d1 - 90) > 15) {
+            got_diamond = true;
+			Player_O.buff_BulletCount_timer = 240; 
+            TriggerGrade("DIAMOND!", x, y - 30);
+        }
+    }
+
     if (!got_square && _len >= 4) {
         var _is_square = true;
         for (var i = _len - 3; i < _len; i++) {
             var _diff = abs(angle_difference(gradas[i - 1], gradas[i]));
-            // Разница между соседними ударами должна быть около 90 градусов (±15°)
             if (abs(_diff - 90) > 15) {
                 _is_square = false;
                 break;
@@ -130,14 +163,41 @@ function CheckAngleBonuses() {
         
         if (_is_square) {
             got_square = true;
-            Player_O.buff_god_timer = 300; // Мощный бафф (скорость + доп. пули + лечение) на 5 секунд
-            Player_O.CurrentHP = min(Player_O.MaxHP, Player_O.CurrentHP + 2); // +2 HP сразу
-            TriggerGrade("SQUARE! OVERDRIVE!", x, y - 30);
+			Player_O.buff_invinibALL_timer = 240; 
+            TriggerGrade("SQUARE!", x, y - 30);
         }
+    }
+
+    if (!got_star && _len >= 5) {
+        var _is_star = true;
+        for (var i = _len - 4; i < _len; i++) {
+            var _diff = abs(angle_difference(gradas[i - 1], gradas[i]));
+            if (abs(_diff - 144) > 20) {
+                _is_star = false;
+                break;
+            }
+        }
+
+        if (_is_star) {
+            got_star = true;
+			Player_O.buff_invinibALL_timer = 240; 
+			Player_O.buff_speed_timer = 240; 
+            TriggerGrade("PENTAGRAM!", x, y - 30);
+        }
+    }
+
+    if (!got_chaos && _len >= 6) {
+        got_chaos = true;
+		Player_O.buff_invinibALL_timer = 240; 
+			Player_O.buff_speed_timer = 240; 
+			Player_O.buff_rapid_timer = 240;
+			Player_O.buff_damage_timer = 240;
+        TriggerGrade("HEXAGON!", x, y - 30);
     }
 }
 
-bounce_delay_max = 1; // Задержка в кадрах (6 кадров = 0.1 сек при 60 FPS; поставь нужное число)
-bounce_timer = 0;     // Текущий счетчик задержки
-saved_speed = 0;      // Запоминаем скорость пули до удара
+
+bounce_delay_max = 1;
+bounce_timer = 0;   
+saved_speed = 0;      
 next_dir = 0;  

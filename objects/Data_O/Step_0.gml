@@ -159,6 +159,7 @@ function StartWave () {
 	Wave_perk = 0
 	perkSpawn = 0
 	SpawnEnemy();
+	Player_O.BaseStats();
 }
 
 

@@ -181,40 +181,20 @@ knock_speed_y = lerp(knock_speed_y, 0, 0.15);
 x += knock_speed_x;
 y += knock_speed_y;
 
-var _bonus_speed   = 0;
-var _bonus_bullets = 0;
+if (buff_speed_timer > 0) { buff_speed_timer -= 1; Max_Speed = Max_Speed * 0.35 }         else { Max_Speed = saveSpeed  }
+if (buff_rapid_timer > 0) { buff_rapid_timer -= 1;  RapidMaxTime = RapidMaxTime * 0.35 }  else { RapidMaxTime = saveRapid }
+if (buff_damage_timer > 0) { buff_damage_timer -= 1; Damage = Damage * 0.35 }             else { Damage = saveDamage  }
+if (buff_invinibALL_timer > 0) { buff_invinibALL_timer -= 1; HitCDelay = HitMaxDelay }
+if (buff_range_timer > 0) { buff_range_timer -= 1; DeadMaxDelay = DeadMaxDelay * 0.35  }  else { DeadMaxDelay = saverange }
+if (buff_BulletCount_timer > 0) { buff_BulletCount_timer -= 1; MaxBulletCounte = 999; }   else { MaxBulletCounte = saveBulletCount  }
 
-if (buff_speed_timer > 0) {
-    buff_speed_timer -= 1;
-    _bonus_speed += 3;
-}
 
-if (buff_god_timer > 0) {
-    buff_god_timer -= 1;
-    _bonus_speed += 4;
-    _bonus_bullets += 2;
-}
-
-if (buff_inf_timer > 0) {
-    buff_inf_timer -= 1;
-    _bonus_bullets += 99; // Бесконечный запас пуль
+function BaseStats () {
+	saveSpeed = Max_Speed;
+	saveRapid = RapidMaxTime;
+	saveDamage = Damage;
+	saverange = DeadMaxDelay;
+	saveBulletCount = MaxBulletCounte;
 }
 
 
-
-// Регенерация HP (+1 HP каждую секунду)
-if (buff_regen_timer > 0) {
-    buff_regen_timer -= 1;
-    regen_tick += 1;
-    if (regen_tick >= 60) {
-        regen_tick = 0;
-        CurrentHP = min(MaxHP, CurrentHP + 1);
-    }
-}
-
-if (buff_pierce_timer > 0) buff_pierce_timer -= 1;
-if (buff_giant_timer > 0)  buff_giant_timer -= 1;
-if (buff_freeze_timer > 0) buff_freeze_timer -= 1;
-
-Max_Speed       = 6 + _bonus_speed;
-MaxBulletCounte = BaseBulletCount + _bonus_bullets;
