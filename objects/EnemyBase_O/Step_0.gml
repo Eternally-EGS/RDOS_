@@ -24,15 +24,12 @@ if (EAnimPlay == 1) {
     }
 }
 
-// 2. ИИ: преследование игрока с обходом ТОЛЬКО AllWall_O
 if (instance_exists(Player_O)) {
     var _dist = point_distance(x, y, Player_O.x, Player_O.y);
     
     if (_dist > 64) {
-        // Обходит только AllWall_O и его дочерние объекты
         mp_potential_step_object(Player_O.x, Player_O.y, Speed, AllWall_O);
     } else {
-        // Вблизи идет напрямую, но не заходит внутрь стен AllWall_O
         var _dir = point_direction(x, y, Player_O.x, Player_O.y);
         var _mx  = lengthdir_x(Speed, _dir);
         var _my  = lengthdir_y(Speed, _dir);
@@ -42,7 +39,6 @@ if (instance_exists(Player_O)) {
     }
 }
 
-// 3. Выбор анимации по направлению движения
 if (x != xprevious || y != yprevious) {
     var _abs_dx = abs(x - xprevious);
     var _abs_dy = abs(y - yprevious);
@@ -64,7 +60,6 @@ if (x != xprevious || y != yprevious) {
     StopAnimation();
 }
 
-// 4. Получение урона от пуль
 
 if (HitCDelay > 0) {
     HitCDelay -= 1;
@@ -82,7 +77,6 @@ if (HitCDelay > 0) {
     }
 }
 
-// 5. Разъединение со всеми пересекающимися врагами без застревания в стенах
 var _list = ds_list_create();
 var _count = instance_place_list(x, y, EnemyBase_O, _list, false);
 
@@ -100,7 +94,6 @@ if (_count > 0) {
         _total_py += lengthdir_y(4, _push_dir);
     }
     
-    // Ограничиваем максимальный толчок за один кадр
     var _push_len = point_distance(0, 0, _total_px, _total_py);
     if (_push_len > 4) {
         _total_px = (_total_px / _push_len) * 4;
@@ -114,7 +107,6 @@ if (_count > 0) {
 ds_list_destroy(_list);
 
 
-// 6. Смерть
 if (CurrentHP <= 0) {
     instance_destroy();
 }

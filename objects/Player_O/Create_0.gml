@@ -29,7 +29,7 @@ BoomPerk = 0;
 FierPerk = 0;
 RegenPerk = 0;
 
-MaxHP = 10;
+MaxHP = 100;
 CurrentHP = MaxHP;
 HitMaxDelay = 1;
 HitCDelay = 0;

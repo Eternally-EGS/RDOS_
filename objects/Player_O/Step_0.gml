@@ -74,8 +74,8 @@ if (Rapid == 0) {
 		var _dir = point_direction(0, 0, Directionx, Directiony);
 		var _xadd = lengthdir_x(Current_Speed, _dir);
 		var _yadd = lengthdir_y(Current_Speed, _dir);
-		if !place_meeting(x + _xadd,y,Wall_O){ x = x + _xadd }
-		if !place_meeting(x,y + _yadd,Wall_O){ y = y + _yadd }
+		if !place_meeting(x + _xadd,y,AllWall_O){ x = x + _xadd }
+		if !place_meeting(x,y + _yadd,AllWall_O){ y = y + _yadd }
 	}
 
 	if (_left || _right || _up || _down) { 

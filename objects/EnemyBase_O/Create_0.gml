@@ -21,7 +21,7 @@ EAnimLoop = 0;
 EAnimSpeed = 0;
 BaseAnimSpeed = 0.1;
 
-Damage = 1;
+Damage = 2;
 // Убедись, что твои базовые переменные (Speed, CurrentHP, HitMaxDelay, BaseAnimSpeed) заданы выше
 Hit = 0;
 HitCDelay = 0;
