@@ -55,7 +55,9 @@ if (instance_exists(Player_O)) {
 }
 
 if (Value != "") {
+	draw_set_font(Base_F_Small)
     draw_text_colour(BX - DropX + 300, BY + DropY - 10, Value1, c_white, c_white, c_white, c_white, HUDalpha);
+	draw_set_font(-1);
 }
 
 draw_set_font(Base_F)
@@ -67,16 +69,18 @@ draw_set_font(-1);
 
 if (Wave_perk == 1) {
 	
-	var Maxy = 350;
-	if (perkAnim > Maxy) { perkAnim -= 30 }
-	draw_sprite_ext(PerkHUD_S,0,BX - DropX,BY + DropY - perkAnim,3,3,0,c_white,HUDalpha)
-	draw_sprite_ext(PerkIcon_S,perk1Ico,BX - DropX - 200,BY + DropY - perkAnim - 30,5,5,0,c_white,HUDalpha)
-	draw_sprite_ext(PerkIcon_S,perk2Ico,BX - DropX + 200,BY + DropY - perkAnim - 30,5,5,0,c_white,HUDalpha)
-	
-	draw_text_colour(BX - DropX - 230,BY + DropY - perkAnim + 80, perk1Text,c_white,c_white,c_white,c_white,HUDalpha)
-	draw_text_colour(BX - DropX + 190,BY + DropY - perkAnim + 80, perk2Text,c_white,c_white,c_white,c_white,HUDalpha)
-
-} else { perkAnim = 1000; }
+	var Maxy = 3;
+	if (perkAnim < Maxy) { perkAnim += 0.3 }
+	var Maxy0 = 5;
+	if (perkAnim0 < Maxy0) { perkAnim0 += 0.3 }
+	draw_sprite_ext(PerkHUD_S,0,BX - DropX,BY + DropY - 350,perkAnim,perkAnim,0,c_white,HUDalpha)
+	draw_sprite_ext(PerkIcon_S,perk1Ico,BX - DropX - 200,BY + DropY - 350 - 30,perkAnim0,perkAnim0,0,c_white,HUDalpha)
+	draw_sprite_ext(PerkIcon_S,perk2Ico,BX - DropX + 200,BY + DropY - 350 - 30,perkAnim0,perkAnim0,0,c_white,HUDalpha)
+	draw_set_font(Base_F_Small)
+	draw_text_colour((BX - DropX - 230) - string_width(perk1Text) / 2 ,BY + DropY - 350 + 80, perk1Text,c_white,c_white,c_white,c_white,HUDalpha)
+	draw_text_colour((BX - DropX + 190) - string_width(perk1Text) / 2,BY + DropY - 350 + 80, perk2Text,c_white,c_white,c_white,c_white,HUDalpha)
+	draw_set_font(-1)
+} else { perkAnim = 0; }
 
 
 var _combo_text = string_join_ext("\n", Combo);
@@ -89,7 +93,8 @@ draw_set_font(-1)
 
 if (ComboCTime > 0) { ComboCTime -= 1 / fps } else { if (array_length(Combo) - 1 > 0) array_delete(Combo, array_length(Combo) - 1, 1);  ComboCTime = ComboTime; }
 
-
+draw_text(500,500,$"1 {perk1Type}")
+draw_text(500,600,$"2 {perk2Type}")
 
 
 

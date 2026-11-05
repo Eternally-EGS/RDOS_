@@ -30,7 +30,8 @@ wave_delay = 120;
 wave_timer = 0;
 Wave_perk = 0;
 
-perkAnim = 1000;
+perkAnim = 0;
+perkAnim0 = 0;
 perkSpawn = 0;
 
 perk1 = 0;

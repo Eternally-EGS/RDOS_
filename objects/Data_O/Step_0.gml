@@ -52,9 +52,30 @@ if (instance_number(EnemyBase_O) == 0 && Wave_perk == 0) {
         StartNextWave();
 		Wave_perk = 1;
 		perkSpawn = 1;
-		perk1Type = irandom(8);
-		perk2Type = irandom(8);
-		if (perk1Type == perk2Type) { perk2Type = irandom(8); } 
+		var _rnd = irandom_range(0,65)
+		
+		if (_rnd <= 30) { perk1Type = 0 }
+		if (_rnd <= 15) { perk1Type = 1 }
+		if (_rnd <= 45) { perk1Type = 2 }
+		if (_rnd <= 55) { perk1Type = 3 }
+		if (_rnd <= 45) { perk1Type = 4 }
+		if (_rnd <= 65) { perk1Type = 5 }
+		if (_rnd <= 10) { perk1Type = 6 }
+		if (_rnd <= 10) { perk1Type = 7 }
+		if (_rnd <= 10) { perk1Type = 8 }
+		
+		var _rnd1 = irandom_range(0,65)
+		
+		if (_rnd1 <= 30) { perk2Type = 0 }
+		if (_rnd1 <= 15) { perk2Type = 1 }
+		if (_rnd1 <= 45) { perk2Type = 2 }
+		if (_rnd1 <= 55) { perk2Type = 3 }
+		if (_rnd1 <= 45) { perk2Type = 4 }
+		if (_rnd1 <= 65) { perk2Type = 5 }
+		if (_rnd1 <= 10) { perk2Type = 6 }
+		if (_rnd1 <= 10) { perk2Type = 7 }
+		if (_rnd1 <= 10) { perk2Type = 8 }
+	
 		ShowPerk()
     }
 } 
@@ -103,7 +124,7 @@ if (Wave_perk == 1) {
         var my = device_mouse_y_to_gui(0);
 
         var x1 = BX - DropX - 200;
-        var y1 = BY + DropY - perkAnim - 30;
+        var y1 = BY + DropY - 350 - 30;
         var l1 = x1 - sprite_get_xoffset(PerkIcon_S) * 5;
         var t1 = y1 - sprite_get_yoffset(PerkIcon_S) * 5;
         var r1 = l1 + sprite_get_width(PerkIcon_S) * 5;
@@ -115,7 +136,7 @@ if (Wave_perk == 1) {
         }
 
         var x2 = BX - DropX + 200;
-        var y2 = BY + DropY - perkAnim - 30;
+        var y2 = BY + DropY - 350 - 30;
         var l2 = x2 - sprite_get_xoffset(PerkIcon_S) * 5;
         var t2 = y2 - sprite_get_yoffset(PerkIcon_S) * 5;
         var r2 = l2 + sprite_get_width(PerkIcon_S) * 5;
@@ -135,7 +156,7 @@ function StartWave () {
 	switch (perk1Type) {
 		case 0: Player_O.MaxBulletCounte += 1			                    break;	
 		case 1: Player_O.MaxBulletCounte += 2			                    break;	
-		case 2: Player_O.Max_Speed += Max_Speed * 0.15;			break;
+		case 2: Player_O.Max_Speed += Player_O.Max_Speed * 0.15;			break;
 		case 3: Player_O.MaxHP += Player_O.MaxHP * 0.15;				 break;
 		case 4: Player_O.Damage += Player_O.Damage * 0.30;					 break;
 		case 5: Player_O.DeadMaxDelay += Player_O.DeadMaxDelay * 0.10;      break;
