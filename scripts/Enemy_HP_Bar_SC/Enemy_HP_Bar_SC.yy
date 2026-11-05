@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Enemy_HP_Bar_SC",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Enemy_HP_Bar_SC",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,5 @@
+Speed = 20;
+Rot = 0;
+image_xscale = 2.5
+image_yscale = 2.5
+LifeTime = 180;
