@@ -96,7 +96,10 @@ function CheckAngleBonuses() {
 
     if (!got_45 && abs(angle_difference(_last_angle, 45)) <= 5) {
         got_45 = true;
+		var _rnd1 = irandom_range(0, 1);
+		if (_rnd1 == 1) {
 		Player_O.buff_speed_timer = 240;
+		}
         TriggerGrade("45! ", x, y - 30);
     }
 
@@ -104,7 +107,9 @@ function CheckAngleBonuses() {
         var _d1 = abs(angle_difference(gradas[_len - 2], gradas[_len - 1]));
         if (abs(_d1 - 180) <= 10) {
             got_pingpong = true;
-            Player_O.buff_range_timer = 240;
+            var _rnd1 = irandom_range(0, 1);
+			if (_rnd1 == 1) then
+			Player_O.buff_range_timer = 240;
             TriggerGrade("PING-PONG! 180!", x, y - 30);
         }
     }
@@ -117,6 +122,8 @@ function CheckAngleBonuses() {
         
         if (abs(angle_difference(_a1, _a2)) > 20 && abs(angle_difference(_a2, _a3)) > 20 && abs(angle_difference(_a1, _a3)) > 20) {
             got_triangle = true;
+            var _rnd1 = irandom_range(0, 1);
+			if (_rnd1 == 1) then
 			Player_O.buff_damage_timer = 240;
             TriggerGrade("TRIANGLE!", x, y - 30);
         }
@@ -128,7 +135,9 @@ function CheckAngleBonuses() {
         
         if (sign(_diff1) != sign(_diff2) && abs(abs(_diff1) - 60) <= 20 && abs(abs(_diff2) - 60) <= 20) {
             got_zigzag = true;
-            Player_O.buff_rapid_timer = 240; 
+            var _rnd1 = irandom_range(0, 1);
+			if (_rnd1 == 1) then
+			Player_O.buff_rapid_timer = 240; 
             TriggerGrade("ZIGZAG!", x, y - 30);
         }
     }
@@ -143,6 +152,8 @@ function CheckAngleBonuses() {
 
         if (abs(_opp1 - 180) <= 15 && abs(_opp2 - 180) <= 15 && abs(_d1 - 90) > 15) {
             got_diamond = true;
+            var _rnd1 = irandom_range(0, 1);
+			if (_rnd1 == 1) then
 			Player_O.buff_BulletCount_timer = 240; 
             TriggerGrade("DIAMOND!", x, y - 30);
         }
@@ -160,6 +171,8 @@ function CheckAngleBonuses() {
         
         if (_is_square) {
             got_square = true;
+            var _rnd1 = irandom_range(0, 1);
+			if (_rnd1 == 1) then
 			Player_O.buff_invinibALL_timer = 240; 
             TriggerGrade("SQUARE!", x, y - 30);
         }
@@ -177,18 +190,22 @@ function CheckAngleBonuses() {
 
         if (_is_star) {
             got_star = true;
+            var _rnd1 = irandom_range(0, 1);
+			if (_rnd1 == 1) {
 			Player_O.buff_invinibALL_timer = 240; 
 			Player_O.buff_speed_timer = 240; 
+			}
             TriggerGrade("PENTAGRAM!", x, y - 30);
         }
     }
 
     if (!got_chaos && _len >= 6) {
         got_chaos = true;
+		var _rnd1 = irandom_range(0, 1);
+		if (_rnd1 == 1) {
 		Player_O.buff_invinibALL_timer = 240; 
-			Player_O.buff_speed_timer = 240; 
-			Player_O.buff_rapid_timer = 240;
 			Player_O.buff_damage_timer = 240;
+		}
         TriggerGrade("HEXAGON!", x, y - 30);
     }
 }

@@ -1,3 +1,5 @@
+randomise();
+
 
 // Camera system
 if (instance_exists(Player_O)) {
@@ -52,32 +54,34 @@ if (instance_number(EnemyBase_O) == 0 && Wave_perk == 0) {
         StartNextWave();
 		Wave_perk = 1;
 		perkSpawn = 1;
-		var _rnd = irandom_range(0,65)
-		
-		if (_rnd <= 30) { perk1Type = 0 }
-		if (_rnd <= 15) { perk1Type = 1 }
-		if (_rnd <= 45) { perk1Type = 2 }
-		if (_rnd <= 55) { perk1Type = 3 }
-		if (_rnd <= 45) { perk1Type = 4 }
-		if (_rnd <= 65) { perk1Type = 5 }
-		if (_rnd <= 10) { perk1Type = 6 }
-		if (_rnd <= 10) { perk1Type = 7 }
-		if (_rnd <= 10) { perk1Type = 8 }
-		
-		var _rnd1 = irandom_range(0,65)
-		
-		if (_rnd1 <= 30) { perk2Type = 0 }
-		if (_rnd1 <= 15) { perk2Type = 1 }
-		if (_rnd1 <= 45) { perk2Type = 2 }
-		if (_rnd1 <= 55) { perk2Type = 3 }
-		if (_rnd1 <= 45) { perk2Type = 4 }
-		if (_rnd1 <= 65) { perk2Type = 5 }
-		if (_rnd1 <= 10) { perk2Type = 6 }
-		if (_rnd1 <= 10) { perk2Type = 7 }
-		if (_rnd1 <= 10) { perk2Type = 8 }
-	
-		ShowPerk()
-    }
+	var _rnd = irandom_range(0, 65);
+
+	if (_rnd <= 30) { perk1Type = 0 }
+	if (_rnd <= 15) { perk1Type = 1 }
+	if (_rnd <= 45) { perk1Type = 2 }
+	if (_rnd <= 55) { perk1Type = 3 }
+	if (_rnd <= 45) { perk1Type = 4 }
+	if (_rnd <= 65) { perk1Type = 5 }
+	if (_rnd <= 10) { perk1Type = 6 }
+	if (_rnd <= 10) { perk1Type = 7 }
+	if (_rnd <= 10) { perk1Type = 8 }
+
+	do {
+	    var _rnd1 = irandom_range(0, 65);
+    
+	    if (_rnd1 <= 30) { perk2Type = 0 }
+	    if (_rnd1 <= 15) { perk2Type = 1 }
+	    if (_rnd1 <= 45) { perk2Type = 2 }
+	    if (_rnd1 <= 55) { perk2Type = 3 }
+	    if (_rnd1 <= 45) { perk2Type = 4 }
+	    if (_rnd1 <= 65) { perk2Type = 5 }
+	    if (_rnd1 <= 10) { perk2Type = 6 }
+	    if (_rnd1 <= 10) { perk2Type = 7 }
+	    if (_rnd1 <= 10) { perk2Type = 8 }
+	} until (perk2Type != perk1Type);
+	ShowPerk()
+    
+	}
 } 
 
 function ShowPerk () {
