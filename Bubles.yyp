@@ -30,6 +30,7 @@
   },
   "name":"Bubles",
   "resources":[
+    {"id":{"name":"Base_F_Small","path":"fonts/Base_F_Small/Base_F_Small.yy",},},
     {"id":{"name":"Base_F","path":"fonts/Base_F/Base_F.yy",},},
     {"id":{"name":"AllWall_O","path":"objects/AllWall_O/AllWall_O.yy",},},
     {"id":{"name":"Bullet_O","path":"objects/Bullet_O/Bullet_O.yy",},},

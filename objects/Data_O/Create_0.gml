@@ -47,6 +47,10 @@ perk2Text = 0;
 
 PerkClick = 0;
 
+Combo = [];
+ComboTime = 1;
+ComboCTime = 2;
+
 function SpawnEnemy() {
   for (var i = 0; i < enemies_per_wave; i++) {
         var _sx = 0;
@@ -84,6 +88,5 @@ function StartNextWave() {
 	
 }
 
-// Запускаем 1-ю волну сразу при старте
 StartNextWave();
 

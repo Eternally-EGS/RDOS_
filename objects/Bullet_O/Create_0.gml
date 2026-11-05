@@ -47,7 +47,9 @@ function TriggerGrade(Text, _xx = x, _yy = y) {
 	_t.Text  = Text;
 	_t.X = _xx;
 	_t.Y = _yy;
-	
+	if ((array_length(Data_O.Combo) - 1) < 6) {
+	array_push(Data_O.Combo, Text);
+	}
 }
 
 
@@ -63,7 +65,7 @@ function StartLine() {
     var _cuts = instance_create_depth(x, y, 0, CutS_O);
     array_push(my_cuts, _cut, _cuts);
     
-    TriggerGrade(_clean_dir, x, y);
+    TriggerGrade($"{_clean_dir}°", x, y);
     array_push(gradas, _clean_dir);
     
     CheckAngleBonuses();

@@ -79,7 +79,16 @@ if (Wave_perk == 1) {
 } else { perkAnim = 1000; }
 
 
-//draw_text_ext_colour(100,650,ViewText_O.Text,10000,10000,c_white,c_white,c_white,c_white,alpha);
+var _combo_text = string_join_ext("\n", Combo);
+
+draw_set_font(Base_F_Small)
+
+draw_text_ext_colour(100, 650, _combo_text, -1, 10000, c_white, c_white, c_white, c_white, HUDalpha);
+
+draw_set_font(-1)
+
+if (ComboCTime > 0) { ComboCTime -= 1 / fps } else { if (array_length(Combo) - 1 > 0) array_delete(Combo, array_length(Combo) - 1, 1);  ComboCTime = ComboTime; }
+
 
 
 
