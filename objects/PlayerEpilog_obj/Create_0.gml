@@ -18,3 +18,4 @@ help = 0
 tutor = 0
 tutorzakrep = 0
 tuterhelp = 0
+helperalpha = 1

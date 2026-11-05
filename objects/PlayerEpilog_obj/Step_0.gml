@@ -91,14 +91,19 @@ if (help == 0){
 		help = 1
 	}
 }
-if (help == 1) and (PlayerEpilog_obj.y == 288) and (tutorzakrep == 0){
-	tutor += 1/60
-	if tutor >= 10{
-		tuterhelp = 1
+if (help == 1){
+	if (PlayerEpilog_obj.y > 287) and (PlayerEpilog_obj.y <= 289){
+		 if (tutorzakrep == 0){
+			tutor += 1/60
+			if (tutor >= 10){
+				tuterhelp = 1
+				tutor = 10
+			}
+		}
+	}
+	else{ 
+		tutorzakrep = 1
+		tuterhelp = 0
+		tutor=0
 	}
 }
-else{ 
-	tutorzakrep = 1
-	tuterhelp = 0
-}
-if (tuterhelp == 1){}
