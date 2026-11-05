@@ -78,6 +78,7 @@ if (instance_number(EnemyBase_O) == 0 && Wave_perk == 0) {
 	    if (_rnd1 <= 10) { perk2Type = 6 }
 	    if (_rnd1 <= 10) { perk2Type = 7 }
 	    if (_rnd1 <= 10) { perk2Type = 8 }
+		
 	} until (perk2Type != perk1Type);
 	ShowPerk()
     

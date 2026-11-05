@@ -25,7 +25,7 @@ hud_scale_timer = 0;
 CameraSpeed = 0.04;
 
 vawe = 0;                
-enemies_per_wave = 10;  
+enemies_per_wave = 1;  
 wave_delay = 120;     
 wave_timer = 0;
 Wave_perk = 0;

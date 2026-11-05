@@ -131,8 +131,14 @@ if (help == 1){
 }
 
 if point_distance(PlayerEpilog_obj.x, PlayerEpilog_obj.y, Furnt4_obj.x, Furnt4_obj.y) < 100{
-	if keyboard_check_pressed(ord("E")){
-		jopajopa = 1
+	if (jopajopa == 0){
+		if keyboard_check_pressed(ord("E")){
+			jopajopa = 1
+		}
+	}else if (jopajopa == 1){
+		if keyboard_check_pressed(ord("E")){
+			jopajopa = 0
+		}
 	}
 }else jopajopa = 0
 
