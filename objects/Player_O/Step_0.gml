@@ -188,7 +188,6 @@ if (buff_invinibALL_timer > 0)  { buff_invinibALL_timer -= 1;  HitCDelay = HitMa
 if (buff_range_timer > 0)       { buff_range_timer -= 1;       DeadMaxDelay = saverange * 1.35; }   else { DeadMaxDelay = saverange; }
 if (buff_BulletCount_timer > 0) { buff_BulletCount_timer -= 1; MaxBulletCounte = 999; }             else { MaxBulletCounte = saveBulletCount; }
 
-
 function BaseStats () {
 	saveSpeed = Max_Speed;
 	saveRapid = RapidMaxTime;

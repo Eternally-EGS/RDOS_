@@ -72,6 +72,7 @@ function SpawnEnemy() {
     }
 }
 SpawnEnemy();
+
 function StartNextWave() {
 	
     vawe += 1;

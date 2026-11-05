@@ -83,7 +83,6 @@ if (Wave_perk == 1) {
 
 
 
-draw_text(500,500,perk1Type)
 
 
 
