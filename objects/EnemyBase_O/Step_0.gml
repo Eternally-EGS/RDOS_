@@ -1,9 +1,3 @@
-if (instance_exists(Player_O) && Player_O.buff_freeze_timer > 0) {
-    image_blend = c_aqua; // Подсвечиваем замороженных врагов голубым
-    exit; // Враг полностью замирает и не атакует, пока идет заморозка
-} else {
-    image_blend = c_white;
-}
 
 // 1. Обновление анимации
 if (EAnimPlay == 1) {
