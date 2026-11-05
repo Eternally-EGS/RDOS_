@@ -79,67 +79,12 @@ if (Wave_perk == 1) {
 	draw_text_colour(BX - DropX - 230,BY + DropY - perkAnim + 80, perk1Text,c_white,c_white,c_white,c_white,HUDalpha)
 	draw_text_colour(BX - DropX + 190,BY + DropY - perkAnim + 80, perk2Text,c_white,c_white,c_white,c_white,HUDalpha)
 
-	
-	if (mouse_check_button_pressed(mb_left)) {
-		
-    var half_w = (sprite_get_width(PerkIcon_S) * 5) / 2;
-    var half_h = (sprite_get_height(PerkIcon_S) * 5) / 2;
-
-    var x1 = BX - DropX - 200;
-    var y1 = BY + DropY - perkAnim - 30;
-
-    if (point_in_rectangle(mouse_x, mouse_y, x1 - half_w, y1 - half_h, x1 + half_w, y1 + half_h)) {
-       StartWave();
-	   perk2Type = -1;
-    }
-
-    var x2 = BX - DropX + 200;
-    var y2 = BY + DropY - perkAnim - 30;
-
-    if (point_in_rectangle(mouse_x, mouse_y, x2 - half_w, y2 - half_h, x2 + half_w, y2 + half_h)) {
-        perk1Type = -1;
-		StartWave();
-    }
-}
-	
 } else { perkAnim = 1000; }
 
 
 
 
-function StartWave () {
 
-	// Perk Type
-	switch (perk1Type) {
-		case 0: Player_O.MaxBulletCounte += 1			                    break;	
-		case 1: Player_O.MaxBulletCounte += 2			                    break;	
-		case 2: Player_O.Max_Speed += Player_O.Max_Speed * 0.05;			break;
-		case 3: Player_O.MaxHP += Player_O.MaxHP * 0.15;				 break;
-		case 4: Player_O.Damage += Player_O.Damage * 0.30;					 break;
-		case 5: Player_O.DeadMaxDelay += Player_O.DeadMaxDelay * 0.10;      break;
-		case 6: Player_O.BoomPerk = 1										break;
-		case 7: Player_O.FierPerk = 1										 break;
-		case 8: Player_O.RegenPerk = 1										 break;
-	}
-
-	switch (perk2Type) {
-		case 0: Player_O.MaxBulletCounte += 1			                   break;	
-		case 1: Player_O.MaxBulletCounte += 2			                    break;	
-		case 2: Player_O.Max_Speed += Player_O.Max_Speed * 0.05;			 break;
-		case 3: Player_O.MaxHP += Player_O.MaxHP * 0.15;					 break;
-		case 4: Player_O.Damage += Player_O.Damage * 0.30;				 break;
-		case 5: Player_O.DeadMaxDelay += Player_O.DeadMaxDelay * 0.10;     break;
-		case 6: Player_O.BoomPerk = 1										 break;
-		case 7: Player_O.FierPerk = 1										 break;
-		case 8: Player_O.RegenPerk = 1									 break;
-	}
-	
-	Wave_perk = 0
-	perkSpawn = 0
-	perk1Type = -1;
-	perk2Type = -1;	
-	SpawnEnemy();
-}
 
 draw_text(500,500,Wave_perk)
 
