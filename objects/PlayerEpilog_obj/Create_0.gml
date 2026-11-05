@@ -15,3 +15,6 @@ BaseAnimSpeed = 0.1;
 
 stopincutscene = 1
 help = 0
+tutor = 0
+tutorzakrep = 0
+tuterhelp = 0

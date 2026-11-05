@@ -91,3 +91,14 @@ if (help == 0){
 		help = 1
 	}
 }
+if (help == 1) and (PlayerEpilog_obj.y == 288) and (tutorzakrep == 0){
+	tutor += 1/60
+	if tutor >= 10{
+		tuterhelp = 1
+	}
+}
+else{ 
+	tutorzakrep = 1
+	tuterhelp = 0
+}
+if (tuterhelp == 1){}
