@@ -71,36 +71,6 @@ if (HitCDelay > 0) {
     }
 }
 
-var _list = ds_list_create();
-var _count = instance_place_list(x, y, EnemyBase_O, _list, false);
-
-if (_count > 0) {
-    var _total_px = 0;
-    var _total_py = 0;
-    
-    for (var i = 0; i < _count; i++) {
-        var _bro = _list[| i];
-        var _push_dir = (x == _bro.x && y == _bro.y) 
-                        ? random(360) 
-                        : point_direction(_bro.x, _bro.y, x, y);
-        
-        _total_px += lengthdir_x(4, _push_dir);
-        _total_py += lengthdir_y(4, _push_dir);
-    }
-    
-    var _push_len = point_distance(0, 0, _total_px, _total_py);
-    if (_push_len > 4) {
-        _total_px = (_total_px / _push_len) * 4;
-        _total_py = (_total_py / _push_len) * 4;
-    }
-    
-    if (!place_meeting(x + _total_px, y, AllWall_O)) x += _total_px;
-    if (!place_meeting(x, y + _total_py, AllWall_O)) y += _total_py;
-}
-
-ds_list_destroy(_list);
-
-
 if (CurrentHP <= 0) {
     instance_destroy();
 }
