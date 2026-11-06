@@ -140,11 +140,11 @@ if point_distance(PlayerEpilog_obj.x, PlayerEpilog_obj.y, Furnt4_obj.x, Furnt4_o
 		}
 	}
 }else book = 0
-
-if point_distance(PlayerEpilog_obj.x, PlayerEpilog_obj.y, Furnt4_obj.x, Furnt4_obj.y) < 100{
-	if keyboard_check_pressed(ord("E")){
-		room_goto(Main)
+if (help == 1){
+	if point_distance(PlayerEpilog_obj.x, PlayerEpilog_obj.y, Furnt5_obj.x, Furnt5_obj.y) < 135{
+		if keyboard_check_pressed(ord("E")){
+			room_goto(Main)
+		}
 	}
 }
-
 
