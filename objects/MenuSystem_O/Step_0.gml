@@ -1,5 +1,5 @@
 
-if keyboard_check_pressed(vk_enter) { room_goto(Main) }
+if keyboard_check_pressed(vk_enter) { room_goto(Epilog) }
 
 
 tim += 0.01;
