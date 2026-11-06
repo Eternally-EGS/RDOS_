@@ -149,7 +149,3 @@ draw_sprite_ext(InMenu_S,inMenuF,BX - DropX - 500,BY + DropY,4,4,0,c_white,HUDal
 
 
 
-
-
-
-

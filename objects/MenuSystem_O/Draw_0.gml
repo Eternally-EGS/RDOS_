@@ -17,5 +17,7 @@ draw_sprite_ext(Menulogo_S, 0, _x, _y - 300, 2, 2, sin(tim) * 10, c_white, 1);
 
 draw_set_font(Base_F);
 var text = "press Enter to start";
+if (color <1){
 draw_text_ext_colour(_x - string_width(text) / 2, _y + 300, text, 1000, 1000, c_black, c_black, c_black, c_black, 1);
+}else draw_text_ext_colour(_x - string_width(text) / 2, _y + 300, text, 1000, 1000, c_white, c_white, c_white, c_white, 1);
 draw_set_font(-1);

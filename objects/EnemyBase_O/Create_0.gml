@@ -56,7 +56,6 @@ function StopAnimation() {
     EAnimPlay   = 0;
     image_index = 0;
 }
-// Мгновенно разъединяем при спауне, если попали друг в друга
 var _tries = 0;
 while (place_meeting(x, y, EnemyBase_O) && _tries < 60) {
     var _other = instance_place(x, y, EnemyBase_O);

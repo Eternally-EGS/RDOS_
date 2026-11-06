@@ -11,3 +11,5 @@ u_mode_handle = shader_get_uniform(Menu_SH, "u_mode");
 
 shader_mode = 0;
 flash_amount = 0.0;
+
+color = 0

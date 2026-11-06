@@ -213,7 +213,7 @@ function SetPerk () {
 	switch (perk2Type) {
 		case 0: Player_O.MaxBulletCounte += 1			                   break;	
 		case 1: Player_O.MaxBulletCounte += 2			                    break;	
-		case 2: Player_O.Max_Speed += clamp(Player_O.Max_Speed * 0.03,4,9);			 break;
+		case 2: Player_O.Max_Speed += Player_O.Max_Speed * 0.03			 break;
 		case 3: Player_O.MaxHP += Player_O.MaxHP * 0.15; Player_O.CurrentHP = Player_O.MaxHP;	 break;
 		case 4: Player_O.Damage += Player_O.Damage * 0.30;				 break;
 		case 5: Player_O.DeadMaxDelay += Player_O.DeadMaxDelay * 0.10;     break;
@@ -227,6 +227,16 @@ function SetPerk () {
 }
 
 function SpawnEnemy() {
+	if (vawe > 0){
+		if instance_exists(Player_O){
+			Player_O.MaxHP += Player_O.MaxHP * 0.10
+			Player_O.CurrentHP = Player_O.MaxHP
+			Player_O.Damage += Player_O.Damage * 0.10
+			
+			Player_O.Max_Speed += Player_O.Max_Speed * 0.08
+		}
+	}
+	
   for (var i = 0; i < enemies_per_wave; i++) {
         var _sx = 0;
         var _sy = 0;
@@ -276,23 +286,20 @@ function SpawnEnemy() {
 
 
         var _enemy = instance_create_depth(_sx, _sy, 0, EnemyBase_O);
-       
-	   if (vawe > 0) {
-		_enemy.MaxHP     += _enemy.MaxHP * 0.15;   
-        _enemy.CurrentHP  = _enemy.MaxHP;
-        _enemy.Speed     += clamp( _enemy.Speed * 0.15, 2, 6)
-        _enemy.Damage    += _enemy.Damage * 0.15;
+		_enemy.MaxHP     = 3 * power(1.15, vawe)  
+        _enemy.CurrentHP = _enemy.MaxHP;
+        _enemy.Damage    = 1 * power(1.15, vawe)
 		
-		//Player_O.MaxHP += Player_O.MaxHP * 0.15
-		}
+        _enemy.Speed     +=_enemy.Speed * (0.02 * vawe)
+		_enemy.Speed = clamp(_enemy.Speed, 1, 4)
     }
 }
 
 
 
 function SetCursor() {
-CursorUse = 1;
-window_set_cursor(cr_handpoint);
+	CursorUse = 1;
+	window_set_cursor(cr_handpoint);
 } 
 		var mx = device_mouse_x_to_gui(0);
         var my = device_mouse_y_to_gui(0);

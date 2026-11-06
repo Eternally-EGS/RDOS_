@@ -1,5 +1,5 @@
 
-if keyboard_check_pressed(vk_enter) or mouse_check_button(mb_left) {
+if keyboard_check_pressed(vk_enter) or keyboard_check_pressed(ord("E")) {
 	room_goto(Epilog) 
 	}
 
@@ -13,3 +13,7 @@ if (PeriodC >= period) {
     PeriodC -= period; 
 }
 
+color += 0.05
+if color >= 2{
+color = 0
+}
