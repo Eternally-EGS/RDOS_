@@ -14,6 +14,9 @@ RapidDelay = 1;
 RapidCurrentDelay = 0;
 RapidAnimSpeed = 0.2;
 
+ShotDel = 0;
+ShotCDel = 0;
+
 image_xscale = 4;
 image_yscale = 4;
 

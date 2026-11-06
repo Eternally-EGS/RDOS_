@@ -96,7 +96,11 @@ if (mouse_check_button_pressed(mb_left) && instance_number(Bullet_O) < MaxBullet
 	Bul.Form = BulletFrame;
 	Bul.Damage = Damage;
 	Bul.DeadMaxDelay = DeadMaxDelay;
+	ShotDel = 1;
 } 
+
+if (ShotDel == 1) { sprite_index = PlayerKick_S; if (Directionx = 1) { image_index = 0 } if (Directionx = -1) { image_index = 1 } ShotCDel += 0.1; }
+if (ShotCDel > 1) { ShotCDel = 0; ShotDel = 0; sprite_index = Player_S; image_index = 0; }
 
 if (BulletFrame > sprite_get_number(Bullet_S) - 1) { BulletFrame = 0; }
 

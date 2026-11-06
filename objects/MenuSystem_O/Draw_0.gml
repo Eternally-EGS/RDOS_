@@ -7,6 +7,7 @@ shader_set_uniform_f(u_intensity_handle, flash_amount);
 shader_set_uniform_f(u_time_handle, tim);
 shader_set_uniform_f(u_mode_handle, shader_mode);
 
+
 draw_sprite_ext(MenuBack_S, 0, _x, _y, 3, 3, 0, c_white, 1);
 shader_reset();
 
