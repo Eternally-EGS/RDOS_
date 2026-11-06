@@ -11,5 +11,22 @@ if (tuterhelp == 1){
 if (book == 1){
 	draw_sprite_ext(Furnt9_sp,0,1280/2,390,4,4,0,c_white,1)
 	
-	draw_text_ext_colour(355,600,"123456789",10000,10000,c_white,c_white,c_white,c_white,1)
+draw_text_ext_colour(400,25,@"
+Your mission is
+beta testing
+Do everything
+to study
+geometry in all
+its beauty
+That is why you
+were created
+That is why you
+exist.
+We will send
+ you to the
+experimental
+ground.
+Do everything
+in your power!!
+",39,10000,c_black,c_black,c_black,c_black,1)
 }
