@@ -96,8 +96,7 @@ if (mouse_check_button_pressed(mb_left) && instance_number(Bullet_O) < MaxBullet
 	Bul.Form = BulletFrame;
 	Bul.Damage = Damage;
 	Bul.DeadMaxDelay = DeadMaxDelay;
-	if (Directionx == -1) { PlayAnimation(kickLeft,0,BaseAnimSpeed / 10,0) }
-}
+} 
 
 if (BulletFrame > sprite_get_number(Bullet_S) - 1) { BulletFrame = 0; }
 

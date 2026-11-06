@@ -59,8 +59,39 @@ function SpawnEnemy() {
         var _tries = 0;
 
         do {
-            _sx = irandom_range(120, room_width - 120);
-            _sy = irandom_range(420, room_height - 420);
+           var _cam = view_camera[0];
+			var _cx = camera_get_view_x(_cam);
+			var _cy = camera_get_view_y(_cam);
+			var _cw = camera_get_view_width(_cam);
+			var _ch = camera_get_view_height(_cam);
+
+			var _margin = 64;
+			var _sx = 0;
+			var _sy = 0;
+
+			var _side = irandom(3);
+
+			switch (_side) {
+			    case 0: 
+			        _sx = irandom_range(_cx - _margin, _cx + _cw + _margin);
+			        _sy = _cy - _margin;
+			        break;
+			    case 1: 
+			        _sx = irandom_range(_cx - _margin, _cx + _cw + _margin);
+			        _sy = _cy + _ch + _margin;
+			        break;
+			    case 2: 
+			        _sx = _cx - _margin;
+			        _sy = irandom_range(_cy - _margin, _cy + _ch + _margin);
+			        break;
+			    case 3:
+			        _sx = _cx + _cw + _margin;
+			        _sy = irandom_range(_cy - _margin, _cy + _ch + _margin);
+			        break;
+			}
+
+			_sx = clamp(_sx, 120, room_width - 120);
+			_sy = clamp(_sy, 420, room_height - 420);
             _tries += 1;
         } until (
             (!place_meeting(_sx, _sy, AllWall_O) && 

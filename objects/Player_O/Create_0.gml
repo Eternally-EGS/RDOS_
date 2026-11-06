@@ -43,11 +43,9 @@ FlashSpeed = 0.1;
 knock_speed_x = 0;
 knock_speed_y = 0;
 
-MaxBulletCounte = 1;
 BulletFrame = -1;
 
-
-BaseBulletCount = 3;
+BaseBulletCount = 1;
 MaxBulletCounte = BaseBulletCount;
 
 buff_speed_timer    = 0;
