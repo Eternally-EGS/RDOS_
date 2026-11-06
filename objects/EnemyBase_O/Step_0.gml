@@ -1,5 +1,4 @@
 
-// 1. Обновление анимации
 if (EAnimPlay == 1) {
     var _last_index = EAnim[array_length(EAnim) - 1];
     image_index += EAnimSpeed;
@@ -55,22 +54,32 @@ if (x != xprevious || y != yprevious) {
 }
 
 
-if (HitCDelay > 0) {
-    HitCDelay -= 1 / fps;
-} else {
-    Hit = 0;
-    var _bullet = instance_place(x, y, Bullet_O);
-    
-    if (_bullet != noone) {
-        if (_bullet.Broke == 0) {
-		Hit = 1;
-        HitCDelay = HitMaxDelay;
-        CurrentHP -= _bullet.Damage;
-		}
-        
-    }
-}
-
 if (CurrentHP <= 0) {
     instance_destroy();
 }
+
+if (instance_exists(Colide)) {
+Colide.X = x
+Colide.Y = y
+Colide.OBJ = self;
+}
+
+var _other_enemy = instance_place(x, y, AllWall_O);
+
+if (_other_enemy != noone) {
+    var _push_dir = point_direction(_other_enemy.x, _other_enemy.y, x, y);
+    
+    if (x == _other_enemy.x && y == _other_enemy.y) {
+        _push_dir = irandom_range(-359,359);
+    }
+    
+    var _push_speed = 1.5;
+    x += lengthdir_x(_push_speed, _push_dir);
+    y += lengthdir_y(_push_speed, _push_dir);
+}
+
+if (x > room_width) { instance_destroy(); }
+if (x < 0) { instance_destroy(); }
+
+if (y > room_height) { instance_destroy(); }
+if (y < 0) { instance_destroy(); }

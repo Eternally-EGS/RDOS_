@@ -17,6 +17,7 @@ if (Player_O.HitCDelay <= 0) {
         Player_O.HitCDelay = Player_O.HitMaxDelay;
         
         Player_O.CurrentHP -= _enemy.Damage; 
+		Player_O.RegenDelayC = 0;
     }
 }
 

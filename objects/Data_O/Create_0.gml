@@ -24,7 +24,7 @@ hud_scale_timer = 0;
 
 CameraSpeed = 0.04;
 
-vawe = 0;                
+vawe = 1;                
 enemies_per_wave = 1;  
 wave_delay = 120;     
 wave_timer = 0;
@@ -52,67 +52,22 @@ Combo = [];
 ComboTime = 1;
 ComboCTime = 2;
 
-function SpawnEnemy() {
-  for (var i = 0; i < enemies_per_wave; i++) {
-        var _sx = 0;
-        var _sy = 0;
-        var _tries = 0;
+vaweTimeOutM = 5;
+VaweStart = 0;
 
-        do {
-           var _cam = view_camera[0];
-			var _cx = camera_get_view_x(_cam);
-			var _cy = camera_get_view_y(_cam);
-			var _cw = camera_get_view_width(_cam);
-			var _ch = camera_get_view_height(_cam);
+VaweStatus = 0;
 
-			var _margin = 64;
-			var _sx = 0;
-			var _sy = 0;
+vaweTimeOut = 5;
 
-			var _side = irandom(3);
+CursorUse = 0;
 
-			switch (_side) {
-			    case 0: 
-			        _sx = irandom_range(_cx - _margin, _cx + _cw + _margin);
-			        _sy = _cy - _margin;
-			        break;
-			    case 1: 
-			        _sx = irandom_range(_cx - _margin, _cx + _cw + _margin);
-			        _sy = _cy + _ch + _margin;
-			        break;
-			    case 2: 
-			        _sx = _cx - _margin;
-			        _sy = irandom_range(_cy - _margin, _cy + _ch + _margin);
-			        break;
-			    case 3:
-			        _sx = _cx + _cw + _margin;
-			        _sy = irandom_range(_cy - _margin, _cy + _ch + _margin);
-			        break;
-			}
+inMenuF = 0;
 
-			_sx = clamp(_sx, 120, room_width - 120);
-			_sy = clamp(_sy, 420, room_height - 420);
-            _tries += 1;
-        } until (
-            (!place_meeting(_sx, _sy, AllWall_O) && 
-            (!instance_exists(Player_O) || point_distance(_sx, _sy, Player_O.x, Player_O.y) > 200)) 
-            || _tries > 50
-        );
+PerkHUDDelay = vaweTimeOutM / 3;
+PerkHUDDelayC = 0;
 
-        var _enemy = instance_create_depth(_sx, _sy, 0, EnemyBase_O);
-        var _bonus_lvl = vawe - 1;
-        _enemy.MaxHP     += _enemy.MaxHP * 0.15;   
-        _enemy.CurrentHP  = _enemy.MaxHP;
-        _enemy.Speed     += clamp( _enemy.Speed * 0.15, 2, 6)
-        _enemy.Damage    += floor(_enemy.Damage * 0.15);
-		
-		Player_O.MaxHP += Player_O.MaxHP * 0.20
-		Player_O.Max_Speed += Player_O.Max_Speed * 0.25
-		Player_O.CurrentHP += Player_O.MaxHP
-		Player_O.Damage += Player_O.Damage * 0.25
-    }
-}
-SpawnEnemy();
+
+/*
 
 function StartNextWave() {
 	
@@ -127,3 +82,4 @@ function StartNextWave() {
 
 StartNextWave();
 
+*/

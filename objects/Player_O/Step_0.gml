@@ -92,7 +92,10 @@ if (Rapid == 0) {
 
 // Shot
 
-if (mouse_check_button_pressed(mb_left) && instance_number(Bullet_O) < MaxBulletCounte && ShotBlock == 0) {
+if (ShotBlock > 0) { ShotBlock -- }
+
+if (ShotBlock == 0) then
+if (mouse_check_button_pressed(mb_left) && instance_number(Bullet_O) < MaxBulletCounte) {
 	var Bul = instance_create_depth(x,y,0,Bullet_O);
 	BulletFrame ++;
 	Bul.Form = BulletFrame;
@@ -101,7 +104,7 @@ if (mouse_check_button_pressed(mb_left) && instance_number(Bullet_O) < MaxBullet
 	ShotDel = 1;
 } 
 
-if (ShotDel == 1) { sprite_index = PlayerKick_S; if (Directionx = 1) { image_index = 0 } if (Directionx = -1) { image_index = 1 } ShotCDel += 0.1; }
+if (ShotDel == 1) { sprite_index = PlayerKick_S; if (x < mouse_x) { image_index = 0 } if (x > mouse_x) { image_index = 1 } ShotCDel += 0.1; }
 if (ShotCDel > 1) { ShotCDel = 0; ShotDel = 0; sprite_index = Player_S; image_index = 0; }
 
 if (BulletFrame > sprite_get_number(Bullet_S) - 1) { BulletFrame = 0; }
@@ -185,7 +188,7 @@ if (buff_rapid_timer > 0)       { buff_rapid_timer -= 1;       RapidMaxTime = sa
 if (buff_damage_timer > 0)      { buff_damage_timer -= 1;      Damage = saveDamage * 1.35; }        else { Damage = saveDamage; }
 if (buff_invinibALL_timer > 0)  { buff_invinibALL_timer -= 1;  HitCDelay = HitMaxDelay; Hit = 1; }         
 if (buff_range_timer > 0)       { buff_range_timer -= 1;       DeadMaxDelay = saverange * 1.35; }   else { DeadMaxDelay = saverange; }
-if (buff_BulletCount_timer > 0) { buff_BulletCount_timer -= 1; MaxBulletCounte = 999; }             else { MaxBulletCounte = saveBulletCount; }
+if (buff_BulletCount_timer > 0) { buff_BulletCount_timer -= 1; MaxBulletCounte = 999; }             else { MaxBulletCounte = saveBulletCount; BaseBulletCount = saveBulletCount; }
 
 function BaseStats () {
 	saveSpeed = Max_Speed;
@@ -194,4 +197,17 @@ function BaseStats () {
 	saverange = DeadMaxDelay;
 	saveBulletCount = MaxBulletCounte;
 }
+
+if (RegenPerk == 1) {
+RegenDelayC += 1 / fps 
+
+if (RegenDelayC >= RegenDelay) {
+
+RegenDelayC0 += 1/ fps
+if (RegenDelayC0 >= RegenDelay0) {  if (CurrentHP < MaxHP) { CurrentHP += CurrentHP * RegenStrange / 100 } RegenDelayC0 = 0;  }
+
+}
+
+}
+
 

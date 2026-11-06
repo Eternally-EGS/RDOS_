@@ -1,3 +1,8 @@
+Colide = instance_create_depth(x,y,depth,Enemy_Colide_O);
+Colide.X = x
+Colide.Y = y
+Colide.OBJ = self;
+
 Speed = 1;
 image_xscale = 4;
 image_yscale = 4;
@@ -12,7 +17,7 @@ MaxFlashTime = 0.1;
 FlashSpeed = 0.1;
 Knock_force = 10;
 
-Start_colide = 1;
+Start_colide = 10;
 
 EBaseAnim = 0;
 EAnimPlay = 0;

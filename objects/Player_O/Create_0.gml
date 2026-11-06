@@ -34,7 +34,7 @@ BoomPerk = 0;
 FierPerk = 0;
 RegenPerk = 0;
 
-MaxHP = 5;
+MaxHP = 1;
 CurrentHP = MaxHP;
 HitMaxDelay = 1;
 HitCDelay = 0;
@@ -65,7 +65,15 @@ saveDamage = Damage;
 saverange = DeadMaxDelay;
 saveBulletCount = MaxBulletCounte;
 
+RegenDelay = 4;
+RegenDelayC = RegenDelay;
 
+RegenDelay0 = 1;
+RegenDelayC0 = RegenDelay0;
+
+RegenStrange = 7;
+
+OldHP = 0;
 
 
 

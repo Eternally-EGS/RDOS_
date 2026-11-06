@@ -96,9 +96,19 @@ function CheckAngleBonuses() {
 
     if (!got_45 && abs(angle_difference(_last_angle, 45)) <= 5) {
         got_45 = true;
-		var _rnd1 = irandom_range(0, 1);
-		if (_rnd1 == 1) {
-		Player_O.buff_speed_timer = 240;
+		var _rnd1 = irandom_range(0, 3);
+		if (_rnd1 == 0) {
+			Player_O.buff_speed_timer = 240;
+		} else if (_rnd1 == 1 && Player_O.BoomPerk == 1) {
+			repeat(irandom_range(1, 3)) {
+				instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Boom_O);
+			}
+		} else if (_rnd1 == 2 && Player_O.FierPerk == 1) {
+			repeat(irandom_range(1, 3)) {
+				instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Fier_O);
+			}
+		} else {
+			Player_O.buff_rapid_timer = 180;
 		}
         TriggerGrade("45! ", x, y - 30);
     }
@@ -107,9 +117,20 @@ function CheckAngleBonuses() {
         var _d1 = abs(angle_difference(gradas[_len - 2], gradas[_len - 1]));
         if (abs(_d1 - 180) <= 10) {
             got_pingpong = true;
-            var _rnd1 = irandom_range(0, 1);
-			if (_rnd1 == 1) then
-			Player_O.buff_range_timer = 240;
+            var _rnd1 = irandom_range(0, 3);
+			if (_rnd1 == 0) {
+				Player_O.buff_range_timer = 240;
+			} else if (_rnd1 == 1 && Player_O.BoomPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Boom_O);
+				}
+			} else if (_rnd1 == 2 && Player_O.FierPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Fier_O);
+				}
+			} else {
+				Player_O.buff_speed_timer = 180;
+			}
             TriggerGrade("PING-PONG! 180!", x, y - 30);
         }
     }
@@ -122,9 +143,20 @@ function CheckAngleBonuses() {
         
         if (abs(angle_difference(_a1, _a2)) > 20 && abs(angle_difference(_a2, _a3)) > 20 && abs(angle_difference(_a1, _a3)) > 20) {
             got_triangle = true;
-            var _rnd1 = irandom_range(0, 1);
-			if (_rnd1 == 1) then
-			Player_O.buff_damage_timer = 240;
+            var _rnd1 = irandom_range(0, 3);
+			if (_rnd1 == 0) {
+				Player_O.buff_damage_timer = 240;
+			} else if (_rnd1 == 1 && Player_O.BoomPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Boom_O);
+				}
+			} else if (_rnd1 == 2 && Player_O.FierPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Fier_O);
+				}
+			} else {
+				Player_O.buff_range_timer = 180;
+			}
             TriggerGrade("TRIANGLE!", x, y - 30);
         }
     }
@@ -135,9 +167,20 @@ function CheckAngleBonuses() {
         
         if (sign(_diff1) != sign(_diff2) && abs(abs(_diff1) - 60) <= 20 && abs(abs(_diff2) - 60) <= 20) {
             got_zigzag = true;
-            var _rnd1 = irandom_range(0, 1);
-			if (_rnd1 == 1) then
-			Player_O.buff_rapid_timer = 240; 
+            var _rnd1 = irandom_range(0, 3);
+			if (_rnd1 == 0) {
+				Player_O.buff_rapid_timer = 240;
+			} else if (_rnd1 == 1 && Player_O.BoomPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Boom_O);
+				}
+			} else if (_rnd1 == 2 && Player_O.FierPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Fier_O);
+				}
+			} else {
+				Player_O.buff_damage_timer = 180;
+			}
             TriggerGrade("ZIGZAG!", x, y - 30);
         }
     }
@@ -152,9 +195,20 @@ function CheckAngleBonuses() {
 
         if (abs(_opp1 - 180) <= 15 && abs(_opp2 - 180) <= 15 && abs(_d1 - 90) > 15) {
             got_diamond = true;
-            var _rnd1 = irandom_range(0, 1);
-			if (_rnd1 == 1) then
-			Player_O.buff_BulletCount_timer = 240; 
+            var _rnd1 = irandom_range(0, 3);
+			if (_rnd1 == 0) {
+				Player_O.buff_BulletCount_timer = 240;
+			} else if (_rnd1 == 1 && Player_O.BoomPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Boom_O);
+				}
+			} else if (_rnd1 == 2 && Player_O.FierPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Fier_O);
+				}
+			} else {
+				Player_O.buff_rapid_timer = 180;
+			}
             TriggerGrade("DIAMOND!", x, y - 30);
         }
     }
@@ -171,9 +225,20 @@ function CheckAngleBonuses() {
         
         if (_is_square) {
             got_square = true;
-            var _rnd1 = irandom_range(0, 1);
-			if (_rnd1 == 1) then
-			Player_O.buff_invinibALL_timer = 240; 
+            var _rnd1 = irandom_range(0, 3);
+			if (_rnd1 == 0) {
+				Player_O.buff_invinibALL_timer = 240;
+			} else if (_rnd1 == 1 && Player_O.BoomPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Boom_O);
+				}
+			} else if (_rnd1 == 2 && Player_O.FierPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Fier_O);
+				}
+			} else {
+				Player_O.buff_BulletCount_timer = 180;
+			}
             TriggerGrade("SQUARE!", x, y - 30);
         }
     }
@@ -190,9 +255,19 @@ function CheckAngleBonuses() {
 
         if (_is_star) {
             got_star = true;
-            var _rnd1 = irandom_range(0, 1);
-			if (_rnd1 == 1) {
-			Player_O.buff_speed_timer = 240; 
+            var _rnd1 = irandom_range(0, 3);
+			if (_rnd1 == 0) {
+				Player_O.buff_speed_timer = 240;
+			} else if (_rnd1 == 1 && Player_O.BoomPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Boom_O);
+				}
+			} else if (_rnd1 == 2 && Player_O.FierPerk == 1) {
+				repeat(irandom_range(1, 3)) {
+					instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Fier_O);
+				}
+			} else {
+				Player_O.buff_invinibALL_timer = 180;
 			}
             TriggerGrade("PENTAGRAM!", x, y - 30);
         }
@@ -200,9 +275,19 @@ function CheckAngleBonuses() {
 
     if (!got_chaos && _len >= 6) {
         got_chaos = true;
-		var _rnd1 = irandom_range(0, 1);
-		if (_rnd1 == 1) {
+		var _rnd1 = irandom_range(0, 3);
+		if (_rnd1 == 0) {
 			Player_O.buff_damage_timer = 240;
+		} else if (_rnd1 == 1 && Player_O.BoomPerk == 1) {
+			repeat(irandom_range(1, 3)) {
+				instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Boom_O);
+			}
+		} else if (_rnd1 == 2 && Player_O.FierPerk == 1) {
+			repeat(irandom_range(1, 3)) {
+				instance_create_depth(irandom_range(Player_O.x - 100,Player_O.x + 100),irandom_range(Player_O.y - 100,Player_O.y + 100),0,Fier_O);
+			}
+		} else {
+			Player_O.buff_BulletCount_timer = 180;
 		}
         TriggerGrade("HEXAGON!", x, y - 30);
     }
@@ -212,4 +297,4 @@ function CheckAngleBonuses() {
 bounce_delay_max = 1;
 bounce_timer = 0;   
 saved_speed = 0;      
-next_dir = 0;  
+next_dir = 0;

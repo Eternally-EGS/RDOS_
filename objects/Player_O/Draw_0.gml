@@ -1,5 +1,3 @@
-new Draw_HP_Bar(CurrentHP, MaxHP, x, y - 50, 3,3).Draw();
-
 
 // Hit
 if (Hit == 1) { 

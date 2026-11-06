@@ -1,0 +1,1 @@
+OldHP = CurrentHP;
