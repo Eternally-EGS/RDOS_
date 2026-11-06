@@ -46,44 +46,43 @@ if (HUDIconAnim == 1) {
 
 // vawe
 
-
 if (instance_number(EnemyBase_O) == 0 && Wave_perk == 0) {
     wave_timer += 1;
     if (wave_timer >= wave_delay) {
         wave_timer = 0;
         StartNextWave();
-		Wave_perk = 1;
-		perkSpawn = 1;
-	var _rnd = irandom_range(0, 65);
+        Wave_perk = 1;
+        perkSpawn = 1;
 
-	if (_rnd <= 30) { perk1Type = 0 }
-	if (_rnd <= 15) { perk1Type = 1 }
-	if (_rnd <= 45) { perk1Type = 2 }
-	if (_rnd <= 55) { perk1Type = 3 }
-	if (_rnd <= 45) { perk1Type = 4 }
-	if (_rnd <= 65) { perk1Type = 5 }
-	if (_rnd <= 10) { perk1Type = 6 }
-	if (_rnd <= 10) { perk1Type = 7 }
-	if (_rnd <= 10) { perk1Type = 8 }
+        var _weights = [30,15,45,55,45,65,10,10,10];
+        var _total = 285; 
 
-	do {
-	    var _rnd1 = irandom_range(0, 65);
-    
-	    if (_rnd1 <= 30) { perk2Type = 0 }
-	    if (_rnd1 <= 15) { perk2Type = 1 }
-	    if (_rnd1 <= 45) { perk2Type = 2 }
-	    if (_rnd1 <= 55) { perk2Type = 3 }
-	    if (_rnd1 <= 45) { perk2Type = 4 }
-	    if (_rnd1 <= 65) { perk2Type = 5 }
-	    if (_rnd1 <= 10) { perk2Type = 6 }
-	    if (_rnd1 <= 10) { perk2Type = 7 }
-	    if (_rnd1 <= 10) { perk2Type = 8 }
-		
-	} until (perk2Type != perk1Type);
-	ShowPerk()
-    
-	}
-} 
+        var _rnd = irandom_range(1, _total);
+        var _sum = 0;
+        for (var i = 0; i < 9; i++) {
+            _sum += _weights[i];
+            if (_rnd <= _sum) {
+                perk1Type = i;
+                break;
+            }
+        }
+
+        do {
+            var _rnd1 = irandom_range(1, _total);
+            _sum = 0;
+            for (var i = 0; i < 9; i++) {
+                _sum += _weights[i];
+                if (_rnd1 <= _sum) {
+                    perk2Type = i;
+                    break;
+                }
+            }
+        } until (perk2Type != perk1Type);
+
+        ShowPerk();
+    }
+}
+
 
 function ShowPerk () {
 	switch (perk1Type) {

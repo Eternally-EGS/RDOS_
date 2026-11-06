@@ -83,8 +83,8 @@ function StartNextWave() {
     vawe += 1;
 
     if (vawe > 1 && instance_exists(Player_O)) {
-        Player_O.BaseBulletCount += 1;
 		Player_O.CurrentHP = Player_O.MaxHP;
+		if (enemies_per_wave < 10) { enemies_per_wave ++; } else { enemies_per_wave = enemies_per_wave * 2 }
     }
 	
 }

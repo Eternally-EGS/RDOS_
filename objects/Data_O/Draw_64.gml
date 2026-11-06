@@ -87,14 +87,11 @@ var _combo_text = string_join_ext("\n", Combo);
 
 draw_set_font(Base_F_Small)
 
-draw_text_ext_colour(100, 650, _combo_text, -1, 10000, c_white, c_white, c_white, c_white, HUDalpha);
+//draw_text_ext_colour(100, 650, _combo_text, -1, 10000, c_white, c_white, c_white, c_white, HUDalpha);
 
 draw_set_font(-1)
 
 if (ComboCTime > 0) { ComboCTime -= 1 / fps } else { if (array_length(Combo) - 1 > 0) array_delete(Combo, array_length(Combo) - 1, 1);  ComboCTime = ComboTime; }
-
-draw_text(500,500,$"1 {perk1Type}")
-draw_text(500,600,$"2 {perk2Type}")
 
 
 

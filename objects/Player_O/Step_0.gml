@@ -184,7 +184,7 @@ y += knock_speed_y;
 if (buff_speed_timer > 0)       { buff_speed_timer -= 1;       Max_Speed = saveSpeed * 1.05; }      else { Max_Speed = saveSpeed; }
 if (buff_rapid_timer > 0)       { buff_rapid_timer -= 1;       RapidMaxTime = saveRapid * 1.35; }   else { RapidMaxTime = saveRapid; }
 if (buff_damage_timer > 0)      { buff_damage_timer -= 1;      Damage = saveDamage * 1.35; }        else { Damage = saveDamage; }
-if (buff_invinibALL_timer > 0)  { buff_invinibALL_timer -= 1;  HitCDelay = HitMaxDelay; }
+if (buff_invinibALL_timer > 0)  { buff_invinibALL_timer -= 1;  HitCDelay = HitMaxDelay; }           else { HitCDelay = 0; }
 if (buff_range_timer > 0)       { buff_range_timer -= 1;       DeadMaxDelay = saverange * 1.35; }   else { DeadMaxDelay = saverange; }
 if (buff_BulletCount_timer > 0) { buff_BulletCount_timer -= 1; MaxBulletCounte = 999; }             else { MaxBulletCounte = saveBulletCount; }
 
