@@ -1,3 +1,4 @@
+instance_create_depth(x,y,depth,PlayerHitColide_O);
 Current_Speed = 0;
 Max_Speed = 6;
 Delay = 0;

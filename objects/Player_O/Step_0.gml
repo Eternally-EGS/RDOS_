@@ -9,6 +9,9 @@ var RapidUp = [5,6,7,8,9]
 var RapidLeft = [15,16,17,18,19]
 var RapidRight = [10,11,12,13,14]
 
+var kickRight = [0]
+var kickLeft = [1]
+
 function PlayAnimation(Anim,Loop,AnimSpeed,IsUpdate) {
 	if(IsUpdate == 0) {
 		EAnimPlay = 1;
@@ -93,6 +96,7 @@ if (mouse_check_button_pressed(mb_left) && instance_number(Bullet_O) < MaxBullet
 	Bul.Form = BulletFrame;
 	Bul.Damage = Damage;
 	Bul.DeadMaxDelay = DeadMaxDelay;
+	if (Directionx == -1) { PlayAnimation(kickLeft,0,BaseAnimSpeed / 10,0) }
 }
 
 if (BulletFrame > sprite_get_number(Bullet_S) - 1) { BulletFrame = 0; }
@@ -152,16 +156,6 @@ if (_enemy != noone) {
 }
 
 // Hit
-if (HitCDelay <= 0) {
-    Hit = 0;
-    
-    if (_enemy != noone) {
-        Hit = 1;
-        HitCDelay = HitMaxDelay;
-        
-        CurrentHP -= _enemy.Damage; 
-    }
-}
 
 if (CurrentHP <= 0) { instance_destroy(self) }
 
@@ -184,7 +178,7 @@ y += knock_speed_y;
 if (buff_speed_timer > 0)       { buff_speed_timer -= 1;       Max_Speed = saveSpeed * 1.05; }      else { Max_Speed = saveSpeed; }
 if (buff_rapid_timer > 0)       { buff_rapid_timer -= 1;       RapidMaxTime = saveRapid * 1.35; }   else { RapidMaxTime = saveRapid; }
 if (buff_damage_timer > 0)      { buff_damage_timer -= 1;      Damage = saveDamage * 1.35; }        else { Damage = saveDamage; }
-if (buff_invinibALL_timer > 0)  { buff_invinibALL_timer -= 1;  HitCDelay = HitMaxDelay; }           else { HitCDelay = 0; }
+if (buff_invinibALL_timer > 0)  { buff_invinibALL_timer -= 1;  HitCDelay = HitMaxDelay; Hit = 1; }         
 if (buff_range_timer > 0)       { buff_range_timer -= 1;       DeadMaxDelay = saverange * 1.35; }   else { DeadMaxDelay = saverange; }
 if (buff_BulletCount_timer > 0) { buff_BulletCount_timer -= 1; MaxBulletCounte = 999; }             else { MaxBulletCounte = saveBulletCount; }
 

@@ -56,7 +56,7 @@ if (x != xprevious || y != yprevious) {
 
 
 if (HitCDelay > 0) {
-    HitCDelay -= 1;
+    HitCDelay -= 1 / fps;
 } else {
     Hit = 0;
     var _bullet = instance_place(x, y, Bullet_O);

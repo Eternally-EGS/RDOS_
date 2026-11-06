@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"PlayerHitColide_O",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"PlayerHitColide_O",
   "overriddenProperties":[],
@@ -27,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"PlayerHit_S",
+    "path":"sprites/PlayerHit_S/PlayerHit_S.yy",
+  },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

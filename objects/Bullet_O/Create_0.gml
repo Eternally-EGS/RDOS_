@@ -192,7 +192,6 @@ function CheckAngleBonuses() {
             got_star = true;
             var _rnd1 = irandom_range(0, 1);
 			if (_rnd1 == 1) {
-			Player_O.buff_invinibALL_timer = 240; 
 			Player_O.buff_speed_timer = 240; 
 			}
             TriggerGrade("PENTAGRAM!", x, y - 30);
@@ -203,7 +202,6 @@ function CheckAngleBonuses() {
         got_chaos = true;
 		var _rnd1 = irandom_range(0, 1);
 		if (_rnd1 == 1) {
-		Player_O.buff_invinibALL_timer = 240; 
 			Player_O.buff_damage_timer = 240;
 		}
         TriggerGrade("HEXAGON!", x, y - 30);
