@@ -1,6 +1,6 @@
 instance_create_depth(x,y,depth,PlayerHitColide_O);
 Current_Speed = 0;
-Max_Speed = 6;
+Max_Speed = 4;
 Delay = 0;
 Inertia = 0.8;
 Directionx = 0;
@@ -34,7 +34,7 @@ BoomPerk = 0;
 FierPerk = 0;
 RegenPerk = 0;
 
-MaxHP = 100;
+MaxHP = 5;
 CurrentHP = MaxHP;
 HitMaxDelay = 1;
 HitCDelay = 0;

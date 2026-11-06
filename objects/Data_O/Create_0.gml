@@ -101,10 +101,15 @@ function SpawnEnemy() {
 
         var _enemy = instance_create_depth(_sx, _sy, 0, EnemyBase_O);
         var _bonus_lvl = vawe - 1;
-        _enemy.MaxHP     += _bonus_lvl * 2;   
+        _enemy.MaxHP     += _enemy.MaxHP * 0.15;   
         _enemy.CurrentHP  = _enemy.MaxHP;
-        _enemy.Speed     += _bonus_lvl * 0.25; 
-        _enemy.Damage    += floor(_bonus_lvl / 2);
+        _enemy.Speed     += clamp( _enemy.Speed * 0.15, 2, 6)
+        _enemy.Damage    += floor(_enemy.Damage * 0.15);
+		
+		Player_O.MaxHP += Player_O.MaxHP * 0.20
+		Player_O.Max_Speed += Player_O.Max_Speed * 0.25
+		Player_O.CurrentHP += Player_O.MaxHP
+		Player_O.Damage += Player_O.Damage * 0.25
     }
 }
 SpawnEnemy();

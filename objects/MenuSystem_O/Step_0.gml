@@ -1,5 +1,7 @@
 
-if keyboard_check_pressed(vk_enter) { room_goto(Epilog) }
+if keyboard_check_pressed(vk_enter) or mouse_check_button(mb_left) {
+	room_goto(Epilog) 
+	}
 
 
 tim += 0.01;

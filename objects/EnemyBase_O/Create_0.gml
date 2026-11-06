@@ -1,9 +1,9 @@
-Speed = 4;
+Speed = 1;
 image_xscale = 4;
 image_yscale = 4;
 MaxHP = 3;
 CurrentHP = MaxHP;
-HitMaxDelay = 1;
+HitMaxDelay = 0.1;
 HitCDelay = 0;
 
 Hit = 0;
@@ -21,13 +21,10 @@ EAnimLoop = 0;
 EAnimSpeed = 0;
 BaseAnimSpeed = 0.1;
 
-Damage = 2;
-// Убедись, что твои базовые переменные (Speed, CurrentHP, HitMaxDelay, BaseAnimSpeed) заданы выше
-Hit = 0;
+Damage = 1;
 HitCDelay = 0;
 
-// Настройки анимаций
- WalkDown = [0,1,2,3]
+WalkDown = [0,1,2,3]
 WalkUp = [4,5,6,7]
 WalkLeft = [10,11]
 WalkRight = [8,9]

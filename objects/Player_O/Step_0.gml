@@ -48,6 +48,8 @@ if (EAnimPlay == 1) {
 	}
 }
 
+
+
 // Walk
 if (Rapid == 0) { 
 	var _left = keyboard_check_direct(ord("A"))
