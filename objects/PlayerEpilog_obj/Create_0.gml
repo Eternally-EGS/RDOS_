@@ -24,4 +24,4 @@ helperalpha = 0
 animfur7 = 0
 timeranimfur7 = 0
 //USE
-jopajopa = 0
+book = 0
