@@ -1,5 +1,3 @@
-randomise();
-
 
 // Camera system
 if (instance_exists(Player_O)) {
@@ -122,6 +120,8 @@ var DropY = 320;
 
 
 if (Wave_perk == 1) {
+	if (instance_exists(Player_O)) then
+	Player_O.ShotBlock = 1;
 	
     if (mouse_check_button_pressed(mb_left)) {
         var mx = device_mouse_x_to_gui(0);
@@ -185,6 +185,8 @@ function StartWave () {
 	perkSpawn = 0
 	SpawnEnemy();
 	Player_O.BaseStats();
+	if (instance_exists(Player_O)) then
+		Player_O.ShotBlock = 0;
 }
 
 

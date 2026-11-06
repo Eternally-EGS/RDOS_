@@ -1,4 +1,4 @@
-
+randomise();
 
 CameraXC = 0;
 CameraYC = 0;

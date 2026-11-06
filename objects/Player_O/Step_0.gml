@@ -90,7 +90,7 @@ if (Rapid == 0) {
 
 // Shot
 
-if (mouse_check_button_pressed(mb_left) && instance_number(Bullet_O) < MaxBulletCounte) {
+if (mouse_check_button_pressed(mb_left) && instance_number(Bullet_O) < MaxBulletCounte && ShotBlock == 0) {
 	var Bul = instance_create_depth(x,y,0,Bullet_O);
 	BulletFrame ++;
 	Bul.Form = BulletFrame;
